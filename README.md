@@ -9,7 +9,7 @@
 
 ## Deployment
 
-- **php artisan servegit clone ..**
+- **git clone..**
 - **php artisan migrate**
 - **php artisan db:seed**
 - **php artisan serve**
