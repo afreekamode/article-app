@@ -29,5 +29,5 @@ Route::post('article/{id}/like', 'Api\LikeController@actOnLike');//likes route
 
  //Comment Endpoits *******************************************************
 
- Route::post('article/{id}/comment', 'Api\CommentController@comment');
+ Route::post('/article/{id}/comment', 'Api\CommentController@comment');
 

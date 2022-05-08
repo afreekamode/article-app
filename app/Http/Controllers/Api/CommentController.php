@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreArticleRequest;
 use App\Models\Article;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Response;
 
 class CommentController extends Controller
 {
@@ -50,7 +52,7 @@ class CommentController extends Controller
      */
     public function comment(Request $request, $article_id)
     {
-       
+        
         $id = $article_id;
         //create post
         $post = new Comment();
@@ -63,8 +65,8 @@ class CommentController extends Controller
         $show_comments = Article::rightJoin('post_comments', 'posts.id', '=', 'post_comments.post_id')
         ->where('post_comments.post_id', $id)
         ->get();
-
-        return response()->json(['code'=>200, 'data'=> $show_comments, 'commentCount'=> $comtData, 'id'=>$id], 200);
+        
+        return response()->json(['data'=> $show_comments, 'commentCount'=> $comtData, 'id'=>$id], 200);
     }
 
 }

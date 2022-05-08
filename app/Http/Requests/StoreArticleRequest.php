@@ -16,6 +16,7 @@ class StoreArticleRequest extends FormRequest
     {
         return [
             'comment' => ['required', 'string', 'max:1500'],
+            'id' => ['required', 'int'],
         ];
     }
 }
